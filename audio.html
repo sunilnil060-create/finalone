@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sounds of the Highlands — Highland Heritages of Bhutan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* ── RESET ── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Raleway', sans-serif !important; }
+        html { scroll-behavior: smooth; }
+        body { background: #fff; color: #000; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; }
+
+        /* ══════════════════════════════
+           HEADER & NAV (exact match)
+        ══════════════════════════════ */
+        header { position: sticky; top: 0; z-index: 1000; background: #fff; padding: 18px 8%; border-bottom: 1px solid #e8e8e8; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; position: relative; }
+        .logo { font-size: 1.4rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; flex-shrink: 0; }
+        .nav-list { list-style: none; display: flex; align-items: center; gap: 28px; margin: 0; padding: 0; }
+        .nav-list > li { position: relative; }
+        .nav-list > li > a { font-weight: 600; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1.2px; transition: opacity 0.3s; display: flex; align-items: center; gap: 5px; white-space: nowrap; }
+        .nav-list > li > a:hover { opacity: 0.45; }
+        .arrow { font-size: 0.68rem; transition: transform 0.3s; display: inline-block; }
+        .has-dropdown:hover .arrow { transform: rotate(180deg); }
+        .dropdown { display: none; position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%); background: #fff; border: 1.5px solid #e0e0e0; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); padding: 10px 8px; list-style: none; flex-direction: column; gap: 4px; white-space: nowrap; z-index: 2000; min-width: max-content; }
+        .dropdown::before { content: ''; position: absolute; top: -7px; left: 50%; transform: translateX(-50%); border-left: 7px solid transparent; border-right: 7px solid transparent; border-bottom: 7px solid #e0e0e0; }
+        .dropdown::after  { content: ''; position: absolute; top: -5px; left: 50%; transform: translateX(-50%); border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 6px solid #fff; }
+        .has-dropdown:hover .dropdown { display: flex; }
+        .dropdown li a { display: block; padding: 8px 16px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; border-radius: 8px; transition: background 0.2s; white-space: nowrap; }
+        .dropdown li a:hover { background: #f4f4f4; }
+        .mega-dropdown { display: none; position: absolute; top: calc(100% + 14px); left: 0; background: #fff; border: 1.5px solid #e0e0e0; border-radius: 16px; box-shadow: 0 12px 40px rgba(0,0,0,0.13); padding: 24px 20px; flex-direction: row; gap: 0; z-index: 2000; min-width: 520px; }
+        .mega-dropdown::before { content: ''; position: absolute; top: -7px; left: 36px; border-left: 7px solid transparent; border-right: 7px solid transparent; border-bottom: 7px solid #e0e0e0; }
+        .mega-dropdown::after  { content: ''; position: absolute; top: -5px; left: 36px; border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 6px solid #fff; }
+        .mega-parent:hover .mega-dropdown { display: flex; }
+        .mega-col { display: flex; flex-direction: column; gap: 2px; flex: 1; padding: 0 16px; }
+        .mega-col:first-child { padding-left: 4px; }
+        .mega-col:last-child  { padding-right: 4px; }
+        .mega-heading { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: #888; margin: 0 0 10px 8px; }
+        .mega-col a { display: block; padding: 8px 12px; font-size: 0.82rem; font-weight: 600; border-radius: 8px; transition: background 0.2s; white-space: nowrap; }
+        .mega-col a:hover { background: #f4f4f4; }
+        .mega-divider { width: 1px; background: #eee; margin: 0 4px; align-self: stretch; }
+        .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 1100; }
+        .hamburger span { display: block; width: 24px; height: 2px; background: #000; border-radius: 2px; transition: all 0.3s; }
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+        .lang-item { list-style: none; }
+        .lang-wrapper { position: relative; }
+        .lang-btn { display: flex; align-items: center; gap: 6px; background: #f4f4f4; border: 1.5px solid #e0e0e0; border-radius: 999px; padding: 6px 12px 6px 10px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #000; cursor: pointer; transition: background 0.2s, border-color 0.2s; white-space: nowrap; }
+        .lang-btn:hover { background: #ebebeb; border-color: #bbb; }
+        .lang-dropdown { display: none; position: absolute; top: calc(100% + 10px); right: 0; background: #fff; border: 1.5px solid #e0e0e0; border-radius: 14px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); padding: 8px; z-index: 2000; min-width: 180px; flex-direction: column; gap: 2px; }
+        .lang-wrapper.open .lang-dropdown { display: flex; }
+        .lang-option { display: flex; align-items: center; gap: 10px; width: 100%; padding: 10px 12px; background: none; border: none; border-radius: 8px; cursor: pointer; transition: background 0.2s; text-align: left; }
+        .lang-option:hover:not([disabled]) { background: #f4f4f4; }
+        .lang-option[disabled] { cursor: default; opacity: 1; }
+        .lang-option.active { background: #f8f8f8; }
+        .lang-code { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: #000; min-width: 24px; }
+        .lang-option[disabled] .lang-code { color: #999; }
+        .lang-name { font-size: 0.85rem; font-weight: 500; color: #000; flex: 1; }
+        .lang-option[disabled] .lang-name { color: #aaa; }
+        .lang-check { font-size: 0.75rem; font-weight: 700; }
+        .lang-soon { font-size: 0.58rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #888; background: #f0f0f0; border: 1px solid #e0e0e0; padding: 2px 7px; border-radius: 999px; white-space: nowrap; }
+        .search-item { list-style: none; }
+        .search-wrapper { display: flex; align-items: center; background: #f4f4f4; border-radius: 999px; padding: 6px 10px; transition: width 0.35s, background 0.2s; overflow: hidden; width: 36px; }
+        .search-wrapper.expanded { width: 200px; background: #f0f0f0; }
+        .search-icon-btn { background: none; border: none; cursor: pointer; padding: 0; display: flex; align-items: center; flex-shrink: 0; }
+        .search-input { border: none; background: transparent; outline: none; font-size: 0.82rem; color: #000; width: 0; padding: 0; transition: width 0.35s, padding 0.35s; }
+        .search-wrapper.expanded .search-input { width: 140px; padding: 0 0 0 8px; }
+
+        /* ── BREADCRUMB ── */
+        .breadcrumb { position: sticky; top: 57px; z-index: 900; background: #fff; border-bottom: 1px solid #ececec; padding: 10px 8%; display: flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .breadcrumb a { color: #888; transition: color 0.2s; }
+        .breadcrumb a:hover { color: #000; }
+        .bc-sep { color: #ccc; }
+        .bc-current { color: #000; }
+
+        /* ══════════════════════════════
+           DARK HERO
+        ══════════════════════════════ */
+        .sounds-hero {
+            background: #fff;
+            padding: 80px 8% 72px;
+            position: relative;
+            overflow: hidden;
+        }
+        .sounds-hero-inner { position: relative; z-index: 2; max-width: 640px; }
+
+        /* eyebrow with animated bars */
+        .sounds-hero-eyebrow {
+            display: inline-flex; align-items: center; gap: 10px;
+            font-size: 0.6rem; font-weight: 800; text-transform: uppercase;
+            letter-spacing: 4px; color: #aaa;
+            margin-bottom: 20px;
+        }
+        .sounds-hero-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: #ddd; }
+        .hero-wave { display: flex; align-items: center; gap: 2px; height: 14px; }
+        .hero-wave span { display: block; width: 2px; background: #bbb; border-radius: 999px; animation: heroWave 1.4s ease-in-out infinite; }
+        .hero-wave span:nth-child(1) { height: 4px;  animation-delay: 0s; }
+        .hero-wave span:nth-child(2) { height: 10px; animation-delay: 0.15s; }
+        .hero-wave span:nth-child(3) { height: 14px; animation-delay: 0.3s; }
+        .hero-wave span:nth-child(4) { height: 8px;  animation-delay: 0.45s; }
+        .hero-wave span:nth-child(5) { height: 12px; animation-delay: 0.6s; }
+        .hero-wave span:nth-child(6) { height: 6px;  animation-delay: 0.75s; }
+        @keyframes heroWave { 0%,100% { transform: scaleY(0.35); opacity: 0.4; } 50% { transform: scaleY(1); opacity: 1; } }
+
+        /* heading uses site's 3.8rem scale */
+        .sounds-hero h1 { font-size: 3.8rem; font-weight: 800; color: #000; line-height: 1; letter-spacing: -0.5px; margin-bottom: 20px; }
+        .sounds-hero p  { font-size: 0.95rem; font-weight: 400; color: #555; line-height: 1.9; max-width: 480px; }
+
+        .sounds-hero-stats {
+            display: flex; align-items: center; gap: 28px;
+            margin-top: 36px; padding-top: 28px;
+            border-top: 1px solid #ececec;
+        }
+        .hero-stat-num   { font-size: 1.4rem; font-weight: 800; color: #000; display: block; letter-spacing: -0.5px; }
+        .hero-stat-label { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: #aaa; display: block; margin-top: 3px; }
+        .hero-stat-sep   { width: 1px; height: 36px; background: #e8e8e8; }
+
+        /* ══════════════════════════════
+           SOUND GRID
+        ══════════════════════════════ */
+        .sounds-grid-section { background: #fff; padding: 0 8% 120px; }
+        .sounds-grid-label {
+            display: flex; align-items: center; gap: 16px; padding: 0 0 36px;
+            font-size: 0.6rem; font-weight: 800; text-transform: uppercase;
+            letter-spacing: 4px; color: #aaa;
+        }
+        .sounds-grid-label::after { content: ''; flex: 1; height: 1px; background: #ececec; }
+
+        .sounds-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+        .sound-card:nth-child(1), .sound-card:nth-child(5), .sound-card:nth-child(8) { grid-row: span 2; }
+
+        .sound-card { position: relative; cursor: pointer; overflow: hidden; border-radius: 6px; background: #111; min-height: 240px; }
+        .sound-card:nth-child(1), .sound-card:nth-child(5), .sound-card:nth-child(8) { min-height: 500px; }
+
+        .sc-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), filter 0.1s;
+    filter: brightness(0.7) saturate(0.85);
+}
+        .sound-card:hover .sc-img { transform: scale(1.05); filter: brightness(0.5) saturate(0.7); }
+
+        .sc-grad { position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,5,8,0.92) 0%, rgba(5,5,8,0.25) 55%, transparent 100%); }
+
+        /* animated bars on hover */
+        .sc-wave-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.1s ease;
+    pointer-events: none;
+}
+        .sound-card:hover .sc-wave-overlay { opacity: 1; }
+        .sc-wave-bars { display: flex; align-items: center; gap: 3px; }
+        .sc-wave-bars span { display: block; width: 3px; background: rgba(255,255,255,0.25); border-radius: 999px; animation: barPulse 1.2s ease-in-out infinite; }
+        .sc-wave-bars span:nth-child(1)  { height: 12px; animation-delay: 0s;    }
+        .sc-wave-bars span:nth-child(2)  { height: 28px; animation-delay: 0.08s; }
+        .sc-wave-bars span:nth-child(3)  { height: 18px; animation-delay: 0.16s; }
+        .sc-wave-bars span:nth-child(4)  { height: 36px; animation-delay: 0.24s; }
+        .sc-wave-bars span:nth-child(5)  { height: 22px; animation-delay: 0.32s; }
+        .sc-wave-bars span:nth-child(6)  { height: 40px; animation-delay: 0.4s;  }
+        .sc-wave-bars span:nth-child(7)  { height: 30px; animation-delay: 0.48s; }
+        .sc-wave-bars span:nth-child(8)  { height: 18px; animation-delay: 0.56s; }
+        .sc-wave-bars span:nth-child(9)  { height: 34px; animation-delay: 0.64s; }
+        .sc-wave-bars span:nth-child(10) { height: 24px; animation-delay: 0.72s; }
+        .sc-wave-bars span:nth-child(11) { height: 14px; animation-delay: 0.8s;  }
+        .sc-wave-bars span:nth-child(12) { height: 26px; animation-delay: 0.88s; }
+        @keyframes barPulse { 0%,100% { transform: scaleY(0.35); opacity: 0.4; } 50% { transform: scaleY(1); opacity: 1; } }
+
+        /* play circle */
+        .sc-play-circle { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%) scale(0.7); width: 56px; height: 56px; border-radius: 50%; background: rgba(255,255,255,0.92); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.35s, transform 0.35s cubic-bezier(0.34,1.56,0.64,1); box-shadow: 0 8px 32px rgba(0,0,0,0.5); }
+        .sc-play-circle svg { width: 18px; height: 18px; fill: #0a0b0d; margin-left: 3px; }
+        .sound-card:hover .sc-play-circle { opacity: 1; transform: translate(-50%,-50%) scale(1); }
+
+        /* card bottom text — using site font sizes */
+        .sc-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px 22px 20px; z-index: 2; }
+        .sc-location { font-size: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; color: rgba(255,255,255,0.38); margin-bottom: 6px; display: flex; align-items: center; gap: 5px; }
+        .sc-location svg { width: 9px; height: 9px; opacity: 0.55; }
+        .sc-title { font-size: 0.95rem; font-weight: 700; color: #f0ebe2; line-height: 1.25; margin-bottom: 8px; }
+        .sound-card:nth-child(1) .sc-title,
+        .sound-card:nth-child(5) .sc-title,
+        .sound-card:nth-child(8) .sc-title { font-size: 1.1rem; }
+        .sc-desc { font-size: 0.8rem; font-weight: 400; color: rgba(240,235,226,0.5); line-height: 1.7; margin-bottom: 12px; display: none; }
+        .sound-card:nth-child(1) .sc-desc,
+        .sound-card:nth-child(5) .sc-desc,
+        .sound-card:nth-child(8) .sc-desc { display: block; }
+        .sc-meta { display: flex; align-items: center; gap: 10px; }
+        .sc-duration { display: inline-flex; align-items: center; gap: 5px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 999px; padding: 3px 10px; font-size: 0.6rem; font-weight: 700; letter-spacing: 1.5px; color: rgba(255,255,255,0.45); }
+        .sc-duration svg { width: 9px; height: 9px; }
+        .sc-tag-pill { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.28); }
+
+        /* ══════════════════════════════
+           PLAYER PANEL (dark, slides up)
+        ══════════════════════════════ */
+        .player-overlay { position: fixed; inset: 0; z-index: 8000; pointer-events: none; }
+        .player-overlay.open { pointer-events: all; }
+        .player-scrim { position: absolute; inset: 0; background: rgba(0,0,0,0); transition: background 0.5s; }
+        .player-overlay.open .player-scrim { background: rgba(0,0,0,0.35); }
+
+        .player-panel { position: absolute; bottom: 0; left: 0; right: 0; background: #fff; border-radius: 20px 20px 0 0; border-top: 1.5px solid #e8e8e8; transform: translateY(100%); transition: transform 0.5s cubic-bezier(0.4,0,0.2,1); overflow: hidden; max-height: 92vh; display: flex; flex-direction: column; box-shadow: 0 -8px 40px rgba(0,0,0,0.1); }
+.player-overlay.open .player-panel {
+    transform: translateY(0);
+}
+
+Yo
+        .player-handle { display: flex; justify-content: center; padding: 14px 0 0; flex-shrink: 0; cursor: pointer; }
+        .player-handle-bar { width: 36px; height: 3px; border-radius: 999px; background: #e0e0e0; }
+
+        .player-close { position: absolute; top: 14px; right: 20px; width: 32px; height: 32px; border-radius: 50%; background: #f4f4f4; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+        .player-close:hover { background: #e8e8e8; }
+        .player-close svg { width: 14px; height: 14px; stroke: #000; }
+
+        .player-inner { display: grid; grid-template-columns: 320px 1fr; flex: 1; overflow: hidden; }
+
+        /* photo */
+        .player-photo-wrap { position: relative; overflow: hidden; }
+        .player-photo-bg { position: absolute; inset: 0; background-size: cover; background-position: center; filter: blur(24px) brightness(0.35) saturate(0.5); transform: scale(1.15); }
+        .player-photo-img { position: absolute; inset: 16px; border-radius: 8px; overflow: hidden; box-shadow: 0 16px 48px rgba(0,0,0,0.3); }
+        .player-photo-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        /* text + controls */
+        .player-content { padding: 36px 44px 40px; display: flex; flex-direction: column; justify-content: center; border-left: 1px solid #ececec; overflow-y: auto; }
+
+        .player-tag   { font-size: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 4px; color: #aaa; display: block; margin-bottom: 8px; }
+        .player-title { font-size: 1.8rem; font-weight: 800; color: #000; line-height: 1.15; margin-bottom: 6px; letter-spacing: -0.3px; }
+        .player-loc   { font-size: 0.72rem; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
+        .player-loc svg { width: 10px; height: 10px; }
+        .player-desc  { font-size: 0.85rem; font-weight: 400; color: #555; line-height: 1.85; margin-bottom: 24px; max-width: 460px; }
+        .player-tags  { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 28px; }
+        .player-tag-pill { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #888; background: #f4f4f4; border: 1px solid #e0e0e0; padding: 4px 12px; border-radius: 999px; }
+
+        /* waveform */
+        .player-waveform { height: 52px; display: flex; align-items: center; gap: 2px; margin-bottom: 12px; cursor: pointer; overflow: hidden; }
+        .wf-bar { flex-shrink: 0; width: 3px; border-radius: 999px; background: #e4e4e4; transition: background 0.15s; }
+        .wf-bar.played  { background: #000; }
+        .wf-bar.playing { background: #000; animation: wfActive 0.6s ease-in-out infinite alternate; }
+        @keyframes wfActive { from { transform: scaleY(0.4); } to { transform: scaleY(1); } }
+
+        /* progress */
+        .player-progress-row { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+        .player-time { font-size: 0.65rem; font-weight: 700; letter-spacing: 1.5px; color: #aaa; white-space: nowrap; min-width: 32px; }
+        .player-scrubber { flex: 1; height: 2px; -webkit-appearance: none; appearance: none; background: #e4e4e4; border-radius: 999px; cursor: pointer; outline: none; }
+        .player-scrubber::-webkit-slider-thumb { -webkit-appearance: none; width: 12px; height: 12px; border-radius: 50%; background: #000; cursor: pointer; }
+
+        /* buttons */
+        .player-btn-row { display: flex; align-items: center; gap: 18px; }
+        .player-skip-btn { background: none; border: none; cursor: pointer; display: flex; align-items: center; opacity: 0.3; transition: opacity 0.2s; padding: 0; }
+        .player-skip-btn:hover { opacity: 1; }
+        .player-skip-btn svg { width: 20px; height: 20px; stroke: #000; }
+        .player-play-btn { width: 54px; height: 54px; border-radius: 50%; background: #000; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.2s, background 0.2s; box-shadow: 0 0 0 8px rgba(0,0,0,0.06); flex-shrink: 0; }
+        .player-play-btn:hover { background: #222; transform: scale(1.08); }
+        .player-play-btn svg { width: 18px; height: 18px; fill: #fff; }
+        .player-play-btn .pause-icon { display: none; }
+        .player-play-btn.playing .play-icon  { display: none; }
+        .player-play-btn.playing .pause-icon { display: block; }
+        .player-vol-group { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+        .player-vol-icon svg { width: 15px; height: 15px; stroke: #aaa; display: block; }
+        .player-vol-slider { width: 80px; height: 2px; -webkit-appearance: none; appearance: none; background: #e4e4e4; border-radius: 999px; cursor: pointer; outline: none; }
+        .player-vol-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 10px; height: 10px; border-radius: 50%; background: #000; cursor: pointer; }
+
+        /* ── FOOTER ── */
+        .site-footer { border-top: 2px solid #000; background: #fff; }
+        .footer-partners { padding: 20px 8%; display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
+        .footer-partners-label { font-size: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 4px; color: #aaa; white-space: nowrap; }
+        .footer-partners-logos { display: flex; align-items: center; gap: 44px; flex-wrap: wrap; }
+        .partner-logo-link { display: flex; align-items: center; opacity: 0.85; transition: opacity 0.25s; }
+        .partner-logo-link:hover { opacity: 1; }
+        .leiden-logo img { height: 44px; width: auto; object-fit: contain; }
+        .rtc-logo img { height: 72px; width: auto; object-fit: contain; }
+        .footer-main { padding: 16px 8%; display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; border-bottom: 1px solid #e8e8e8; }
+        .footer-brand .footer-logo { font-size: 1.1rem; font-weight: 800; letter-spacing: 2px; display: block; margin-bottom: 8px; }
+        .footer-brand p { font-size: 0.82rem; color: #333; line-height: 1.65; max-width: 360px; }
+        .footer-social h4 { font-size: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 4px; color: #888; margin-bottom: 10px; }
+        .footer-social-links { display: flex; gap: 8px; flex-wrap: wrap; }
+        .social-btn { display: flex; align-items: center; gap: 8px; padding: 7px 14px; border: 1.5px solid #000; border-radius: 999px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; transition: background 0.25s, color 0.25s; }
+        .social-btn:hover { background: #000; color: #fff; }
+        .footer-bottom { padding: 10px 8%; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+        .footer-copy { font-size: 0.72rem; color: #888; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-bottom-links { display: flex; gap: 24px; }
+        .footer-bottom-links a { font-size: 0.72rem; color: #888; font-weight: 600; letter-spacing: 1px; transition: color 0.2s; }
+        .footer-bottom-links a:hover { color: #000; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1000px) {
+            .sounds-grid { grid-template-columns: repeat(2,1fr); }
+            .sound-card:nth-child(1) { grid-column: span 2; min-height: 360px; }
+            .sound-card:nth-child(5), .sound-card:nth-child(8) { grid-row: span 1; min-height: 240px; }
+            .player-inner { grid-template-columns: 1fr; }
+            .player-photo-wrap { height: 260px; }
+            .player-content { padding: 24px 28px 32px; border-left: none; border-top: 1px solid #ececec; }
+            .player-title { font-size: 1.4rem; }
+        }
+        @media (max-width: 700px) {
+            .sounds-grid { grid-template-columns: 1fr; }
+            .sound-card { min-height: 220px !important; grid-row: span 1 !important; grid-column: span 1 !important; }
+            .sound-card .sc-desc { display: block; }
+            .sounds-hero { padding: 56px 6% 52px; }
+            .sounds-hero h1 { font-size: 2.4rem; }
+            .player-vol-group { display: none; }
+        }
+        @media (max-width: 900px) {
+            .hamburger { display: flex; }
+            #main-nav { display: none; position: absolute; top: calc(100% + 18px); left: 0; right: 0; background: #fff; border: 1.5px solid #e0e0e0; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); padding: 16px 0; z-index: 999; }
+            #main-nav.open { display: block; }
+            .nav-list { flex-direction: column; align-items: flex-start; gap: 0; padding: 0 8px; }
+            .nav-list > li { width: 100%; }
+            .nav-list > li > a { padding: 12px 16px; border-radius: 10px; justify-content: space-between; width: 100%; }
+            .nav-list > li > a:hover { background: #f4f4f4; opacity: 1; }
+            .mega-dropdown { position: static; flex-direction: column; box-shadow: none; border: none; border-radius: 0; padding: 0 0 8px 12px; min-width: unset; width: 100%; display: none !important; }
+            .mega-dropdown::before, .mega-dropdown::after { display: none; }
+            .mega-dropdown.mobile-open { display: flex !important; }
+            .mega-col { padding: 4px 0; }
+            .mega-divider { width: 100%; height: 1px; margin: 6px 0; }
+            .dropdown { position: static; transform: none; box-shadow: none; border: none; border-radius: 0; padding: 0 0 8px 16px; flex-direction: column; background: transparent; min-width: unset; display: none !important; }
+            .dropdown::before, .dropdown::after { display: none; }
+            .dropdown.mobile-open { display: flex !important; }
+            .search-item { padding: 8px 16px; width: 100%; }
+            .search-wrapper { width: 100% !important; }
+            .search-input { width: 100% !important; padding: 0 0 0 8px !important; }
+            .footer-main { grid-template-columns: 1fr; gap: 16px; }
+            .footer-bottom { flex-direction: column; align-items: flex-start; gap: 10px; }
+        }
+        .sounds-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    padding: 80px 8% 72px;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+}
+
+.sounds-hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 640px;
+}
+
+.sounds-hero-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.hero-waveform-large {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: 140px;
+    width: 100%;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 12px;
+    padding: 24px 20px;
+}
+
+.hero-wf-bar {
+    flex: 1;
+    border-radius: 999px;
+    background: #000;
+    opacity: 0.07;
+    min-width: 3px;
+    transition: opacity 0.3s;
+}
+
+.hero-wf-bar.lit {
+    opacity: 0.88;
+    animation: heroBarPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes heroBarPulse {
+    0%, 100% { transform: scaleY(0.2); opacity: 0.15; }
+    50%       { transform: scaleY(1);   opacity: 0.88; }
+}
+
+.hero-wf-caption {
+    font-family: 'Raleway', sans-serif !important;
+    font-size: 0.62rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #bbb;
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .sounds-hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 56px 6% 52px;
+    }
+    .sounds-hero-visual { display: none; }
+    .sounds-hero h1 { font-size: 2.4rem; }
+}
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="nav-container">
+        <a href="index.html" class="logo">RTC Heritage Portal</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        <nav id="main-nav">
+            <ul class="nav-list">
+                <li class="has-dropdown mega-parent">
+                    <a href="#">Location, Theme &amp; More <span class="arrow">▾</span></a>
+                    <div class="mega-dropdown">
+                        <div class="mega-col">
+                            <p class="mega-heading">Location</p>
+                            <a href="haa-resourea.html">Haa Resources</a>
+                            <a href="#sephu">Sephu Resources</a>
+                            <a href="#thimphu">Thimphu Resources</a>
+                        </div>
+                        <div class="mega-divider"></div>
+                        <div class="mega-col">
+                            <p class="mega-heading">Theme</p>
+                            <a href="#" data-theme="0">Page Theme</a>
+                            <a href="#" data-theme="1">Theme Cultural</a>
+                            <a href="#" data-theme="2">Theme Cosmetic</a>
+                        </div>
+                        <div class="mega-divider"></div>
+                        <div class="mega-col">
+                            <p class="mega-heading">More</p>
+                            <a href="resources.html">Additional Resources</a>
+                            <a href="interactive-map.html">Interactive Map</a>
+                            <a href="#">Announcement</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="has-dropdown">
+                    <a href="index.html#about-portal">About <span class="arrow">▾</span></a>
+                    <ul class="dropdown"><li><a href="index.html#about-portal">VMO</a></li><li><a href="partners.html">Partners</a></li></ul>
+                </li>
+                <li class="has-dropdown">
+                    <a href="#">Archive <span class="arrow">▾</span></a>
+                    <ul class="dropdown">
+                        <li><a href="films.html">Films</a></li>
+                        <li><a href="photoessay.html">Photo Essays</a></li>
+                        <li><a href="vignettes.html">Vignettes</a></li>
+                        <li><a href="audio.html">Sounds</a></li>
+                    </ul>
+                </li>
+                <li><a href="lesson-plan.html">Lesson Plans</a></li>
+                <li class="lang-item">
+                    <div class="lang-wrapper" id="lang-wrapper">
+                        <button class="lang-btn" id="lang-btn" aria-label="Change language">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                            <span id="lang-label">EN</span><span class="arrow">▾</span>
+                        </button>
+                        <div class="lang-dropdown" id="lang-dropdown">
+                            <button class="lang-option active" data-lang="en"><span class="lang-code">EN</span><span class="lang-name">English</span><span class="lang-check">✓</span></button>
+                            <button class="lang-option" data-lang="dz" disabled><span class="lang-code">DZ</span><span class="lang-name">རྫོང་ཁ</span><span class="lang-soon">Coming Soon</span></button>
+                        </div>
+                    </div>
+                </li>
+                <li class="search-item">
+                    <div class="search-wrapper" id="search-wrapper">
+                        <button class="search-icon-btn" id="search-btn" aria-label="Search">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                        </button>
+                        <input type="text" class="search-input" id="search-input" placeholder="Search...">
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<nav class="breadcrumb">
+    <a href="index.html">Home</a><span class="bc-sep">›</span>
+    <a href="index.html#media-gallery">Media Gallery</a><span class="bc-sep">›</span>
+    <span class="bc-current">Sounds of the Highlands</span>
+</nav>
+
+<!-- DARK HERO -->
+<div class="sounds-hero">
+    <div class="sounds-hero-inner">
+        <div class="sounds-hero-eyebrow">
+            <div class="hero-wave"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            Audio Gallery
+        </div>
+        <h1>Sounds of the<br>Highlands</h1>
+        <p>Close your eyes. Each recording is a 2–3 minute immersion into a place — a tent in winter, a river at dawn, prayer flags in a mountain pass. No narration. Just the world as it sounds.</p>
+        <div class="sounds-hero-stats">
+            <div><span class="hero-stat-num">9</span><span class="hero-stat-label">Soundscapes</span></div>
+            <div class="hero-stat-sep"></div>
+            <div><span class="hero-stat-num">3</span><span class="hero-stat-label">Locations</span></div>
+            <div class="hero-stat-sep"></div>
+            <div><span class="hero-stat-num">~24 min</span><span class="hero-stat-label">Total Listening</span></div>
+        </div>
+    </div>
+
+    <div class="sounds-hero-visual">
+        <div class="hero-waveform-large" id="heroWaveformLarge"></div>
+        <p class="hero-wf-caption">Tap any soundscape below to listen</p>
+    </div>
+</div>
+
+<!-- SOUND GRID -->
+<div class="sounds-grid-section">
+    <div class="sounds-grid-label">Tap any soundscape to listen</div>
+    <div class="sounds-grid" id="soundsGrid">
+
+        <div class="sound-card" data-sound="1">
+            <img class="sc-img" src="images/slider1.jpg" alt="The Tent at Night">
+            <div class="sc-grad"></div>
+            <div class="sc-wave-overlay"><div class="sc-wave-bars"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+            <div class="sc-play-circle"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+            <div class="sc-info">
+                <div class="sc-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Haa Valley</div>
+                <h3 class="sc-title">The Tent at Night</h3>
+                <p class="sc-desc">Canvas walls in a winter wind. The sound of a yak-hair rope pulling taut. Embers settling. A world reduced to its most essential sounds.</p>
+                <div class="sc-meta"><span class="sc-duration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2:48</span><span class="sc-tag-pill">Field Recording</span></div>
+            </div>
+        </div>
+
+        <div class="sound-card" data-sound="2">
+            <img class="sc-img" src="images/5.jpg" alt="The River at Dawn">
+            <div class="sc-grad"></div>
+            <div class="sc-wave-overlay"><div class="sc-wave-bars"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+            <div class="sc-play-circle"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+            <div class="sc-info">
+                <div class="sc-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Merak</div>
+                <h3 class="sc-title">The River at Dawn</h3>
+                <div class="sc-meta"><span class="sc-duration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>3:12</span><span class="sc-tag-pill">Water · Glacial</span></div>
+            </div>
+        </div>
+
+        <div class="sound-card" data-sound="3">
+            <img class="sc-img" src="images/3.jpg" alt="Prayer Flags in Wind">
+            <div class="sc-grad"></div>
+            <div class="sc-wave-overlay"><div class="sc-wave-bars"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+            <div class="sc-play-circle"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+            <div class="sc-info">
+                <div class="sc-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Laya Pass, 4,380m</div>
+                <h3 class="sc-title">Prayer Flags in Wind</h3>
+                <div class="sc-meta"><span class="sc-duration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2:34</span><span class="sc-tag-pill">Wind · Sacred</span></div>
+            </div>
+        </div>
+
+        <div class="sound-card" data-sound="4">
+            <img class="sc-img" src="images/7.jpg" alt="Horses Grazing">
+            <div class="sc-grad"></div>
+            <div class="sc-wave-overlay"><div class="sc-wave-bars"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+            <div class="sc-play-circle"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+            <div class="sc-info">
+                <div class="sc-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Summer Pasture, Haa</div>
+                <h3 class="sc-title">Horses Grazing at Altitude</h3>
+                <div class="sc-meta"><span class="sc-duration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2:55</span><span class="sc-tag-pill">Animals · Pasture</span></div>
+            </div>
+        </div>
+
+        <div class="sound-card" data-sound="5">
+            <img class="sc-img" src="images/theme2.jpg" alt="The Beehive">
+            <div class="sc-grad"></div>
+            <div class="sc-wave-overlay"><div class="sc-wave-bars"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+            <div class="sc-play-circle"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+            <div class="sc-info">
+                <div class="sc-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Haa Forest</div>
+                <h3 class="sc-title">The Beehive in June</h3>
+                <p class="sc-desc">Standing two metres from a wild cliff colony. A thousand wings at work. The hum rises and falls like breathing. Recorded at 6am before the valley woke.</p>
+                <div class="sc-meta"><span class="sc-duration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>3:04</span><span class="sc-tag-pill">Insects · Forest</span></div>
+            </div>
+        </div>
+
+        <div class="sound-card" data-sound="6">
+            <img class="sc-img" src="images/slider5.jpg" alt="Monastery Bells">
+            <div class="sc-grad"></div>
+            <div class="sc-wave-overlay"><div class="sc-wave-bars"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+            <div class="sc-play-circle"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+            <div class="sc-info">
+                <div class="sc-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Trongsa</div>
+                <h3 class="sc-title">Monastery Dawn Bells</h3>
+                <div class="sc-meta"><span class="sc-duration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2:20</span><span class="sc-tag-pill">Sacred · Ritual</span></div>
+            </div>
+        </div>
+
+        <div class="sound-card" data-sound="7">
+            <img class="sc-img" src="images/13.jpg" alt="Rain on a Dzong Roof">
+            <div class="sc-grad"></div>
+            <div class="sc-wave-overlay"><div class="sc-wave-bars"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+            <div class="sc-play-circle"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+            <div class="sc-info">
+                <div class="sc-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Haa Dzong</div>
+                <h3 class="sc-title">Rain on a Dzong Roof</h3>
+                <div class="sc-meta"><span class="sc-duration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2:58</span><span class="sc-tag-pill">Monsoon · Rain</span></div>
+            </div>
+        </div>
+
+        <div class="sound-card" data-sound="8">
+            <img class="sc-img" src="images/theme1.jpg" alt="Yak Bells Descending">
+            <div class="sc-grad"></div>
+            <div class="sc-wave-overlay"><div class="sc-wave-bars"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+            <div class="sc-play-circle"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+            <div class="sc-info">
+                <div class="sc-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Laya Migration Route</div>
+                <h3 class="sc-title">Yak Bells Descending</h3>
+                <p class="sc-desc">October migration season. Dozens of yaks moving down the ridge. Their bells — different sizes, different tones — arrive before they do. Recorded at 3,800m.</p>
+                <div class="sc-meta"><span class="sc-duration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>3:18</span><span class="sc-tag-pill">Migration · Animals</span></div>
+            </div>
+        </div>
+
+        <div class="sound-card" data-sound="9">
+            <img class="sc-img" src="images/thumbnail.jpg" alt="The Weekly Market">
+            <div class="sc-grad"></div>
+            <div class="sc-wave-overlay"><div class="sc-wave-bars"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+            <div class="sc-play-circle"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+            <div class="sc-info">
+                <div class="sc-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Thimphu</div>
+                <h3 class="sc-title">The Weekly Market</h3>
+                <div class="sc-meta"><span class="sc-duration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2:44</span><span class="sc-tag-pill">Community · Urban</span></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- PLAYER PANEL -->
+<div class="player-overlay" id="playerOverlay">
+    <div class="player-scrim" id="playerScrim"></div>
+    <div class="player-panel" id="playerPanel">
+        <div class="player-handle" id="playerHandle"><div class="player-handle-bar"></div></div>
+        <button class="player-close" id="playerClose"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+        <div class="player-inner">
+            <div class="player-photo-wrap" id="playerPhotoWrap">
+                <div class="player-photo-bg" id="playerPhotoBg"></div>
+                <div class="player-photo-img"><img id="playerImg" src="" alt=""></div>
+            </div>
+            <div class="player-content">
+                <span class="player-tag" id="playerTag"></span>
+                <h2 class="player-title" id="playerTitle"></h2>
+                <div class="player-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span id="playerLocText"></span></div>
+                <p class="player-desc" id="playerDesc"></p>
+                <div class="player-tags" id="playerTags"></div>
+                <div class="player-waveform" id="playerWaveform"></div>
+                <div class="player-progress-row">
+                    <span class="player-time" id="playerCurrent">0:00</span>
+                    <input type="range" class="player-scrubber" id="playerScrubber" value="0" min="0" max="100">
+                    <span class="player-time" id="playerDur" style="text-align:right;">—</span>
+                </div>
+                <div class="player-btn-row">
+                    <button class="player-skip-btn" id="playerPrev"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="19 20 9 12 19 4 19 20"/><line x1="5" y1="19" x2="5" y2="5"/></svg></button>
+                    <button class="player-play-btn" id="playerPlayBtn"><svg class="play-icon" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="pause-icon" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></button>
+                    <button class="player-skip-btn" id="playerNext"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19"/></svg></button>
+                    <div class="player-vol-group">
+                        <div class="player-vol-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></div>
+                        <input type="range" class="player-vol-slider" value="80" min="0" max="100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="footer-partners">
+        <p class="footer-partners-label">In Partnership With</p>
+        <div class="footer-partners-logos">
+            <a href="https://www.universiteitleiden.nl/en" target="_blank" rel="noopener" class="partner-logo-link leiden-logo"><img src="images/logo2.jpg" alt="Universiteit Leiden"></a>
+            <a href="https://www.rtc.bt" target="_blank" rel="noopener" class="partner-logo-link rtc-logo"><img src="image/Logo.png" alt="Royal Thimphu College"></a>
+        </div>
+    </div>
+    <div class="footer-main">
+        <div class="footer-brand"><span class="footer-logo">RTC Heritage Portal</span><p>Documenting the living traditions, oral histories, and sacred wisdom of Bhutan's highland communities — for the generations to come.</p></div>
+        <div class="footer-social">
+            <h4>Follow Our Work</h4>
+            <div class="footer-social-links">
+                <a href="#" class="social-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>Facebook</a>
+                <a href="#" class="social-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+                <a href="#" class="social-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>YouTube</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span class="footer-copy">© 2025 RTC Heritage Portal — Royal Thimphu College, Bhutan</span>
+        <nav class="footer-bottom-links"><a href="vmo.html">VMO</a><a href="films.html">Films</a><a href="photoessay.html">Essays</a><a href="vignettes.html">Vignettes</a></nav>
+    </div>
+</footer>
+
+
+<script>
+(function(){
+    var SOUNDS={
+        1:{tag:'Field Recording',loc:'Haa Valley',title:'The Tent at Night',img:'images/slider1.jpg',desc:'Canvas walls in a winter wind. The sound of a yak-hair rope pulling taut. Embers settling in a clay hearth. A world reduced to its most essential sounds. Recorded in a herder\'s tent at 3,200m, January 2023.',tags:['Field Recording','Winter','Shelter'],dur:'2:48',sec:168},
+        2:{tag:'Water · Glacial',loc:'Merak',title:'The River at Dawn',img:'images/5.jpg',desc:'Glacial meltwater rushing over rounded stones in the Merak valley. Before the first light, the river is the only sound. Everything else listens. Recorded at 5:20am, April 2023.',tags:['Water','Glacial','Dawn'],dur:'3:12',sec:192},
+        3:{tag:'Wind · Sacred',loc:'Laya Pass, 4,380m',title:'Prayer Flags in Wind',img:'images/3.jpg',desc:'Hundreds of lung-ta — wind horses — snapping on the mountain pass above Laya. Between gusts, a silence so complete you can hear your own pulse. Recorded October 2022.',tags:['Wind','Sacred','High Altitude'],dur:'2:34',sec:154},
+        4:{tag:'Animals · Pasture',loc:'Summer Pasture, Haa',title:'Horses Grazing at Altitude',img:'images/7.jpg',desc:'An afternoon with sixteen horses on open alpine pasture at 3,600m. Hooves on soft ground, the tearing of grass, the occasional snort — a sound of unhurried time. Recorded August 2023.',tags:['Animals','Pasture','Afternoon'],dur:'2:55',sec:175},
+        5:{tag:'Insects · Forest',loc:'Haa Forest',title:'The Beehive in June',img:'images/theme2.jpg',desc:'Standing two metres from a wild cliff colony. A thousand wings at work. The hum rises and falls like breathing — a living, thinking sound. Recorded at 6am before the valley woke. June 2023.',tags:['Insects','Forest','Summer'],dur:'3:04',sec:184},
+        6:{tag:'Sacred · Ritual',loc:'Trongsa',title:'Monastery Dawn Bells',img:'images/slider5.jpg',desc:'The first bells of morning at a monastery above Trongsa. They ring in sequence — a conversation between towers. The valley below slowly acknowledges it. Recorded 5:45am, March 2023.',tags:['Sacred','Ritual','Bells'],dur:'2:20',sec:140},
+        7:{tag:'Monsoon · Rain',loc:'Haa Dzong',title:'Rain on a Dzong Roof',img:'images/13.jpg',desc:'Monsoon rain on ancient timber and stone. The Haa Dzong roof in July. Rain collects in the courtyard, runs through the carved gutters. A sound of great age being washed. July 2023.',tags:['Monsoon','Rain','Architecture'],dur:'2:58',sec:178},
+        8:{tag:'Migration · Animals',loc:'Laya Migration Route',title:'Yak Bells Descending',img:'images/theme1.jpg',desc:'October migration season. Dozens of yaks moving down the ridge from summer pasture. Their bells — different sizes, different tones — arrive before they do. Recorded at 3,800m, October 2022.',tags:['Migration','Animals','Autumn'],dur:'3:18',sec:198},
+        9:{tag:'Community · Urban',loc:'Thimphu',title:'The Weekly Market',img:'images/thumbnail.jpg',desc:'Saturday morning at Thimphu\'s open-air market. Dzongkha and Nepali mixed with the slap of fish on plastic, the rustle of dried chilli. The urban edge of highland culture. Recorded November 2022.',tags:['Community','Market','Urban'],dur:'2:44',sec:164}
+    };
+
+    /* NAV */
+    var hamburger=document.getElementById('hamburger'),mainNav=document.getElementById('main-nav');
+    var searchBtn=document.getElementById('search-btn'),searchWrapper=document.getElementById('search-wrapper'),searchInput=document.getElementById('search-input');
+    document.querySelectorAll('.has-dropdown').forEach(function(item){var drop=item.querySelector('.mega-dropdown')||item.querySelector('.dropdown');if(!drop)return;var t;item.addEventListener('mouseenter',function(){if(window.innerWidth>900){clearTimeout(t);drop.style.display='flex';}});item.addEventListener('mouseleave',function(){if(window.innerWidth>900)t=setTimeout(function(){drop.style.display='';},120);});drop.addEventListener('mouseenter',function(){clearTimeout(t);});drop.addEventListener('mouseleave',function(){if(window.innerWidth>900)t=setTimeout(function(){drop.style.display='';},120);});});
+    if(searchBtn){searchBtn.addEventListener('click',function(e){e.stopPropagation();var o=searchWrapper.classList.toggle('expanded');if(o)searchInput.focus();else{searchInput.value='';searchInput.blur();}});}
+    document.addEventListener('click',function(e){if(searchWrapper&&!searchWrapper.contains(e.target)){searchWrapper.classList.remove('expanded');if(searchInput)searchInput.value='';}});
+    if(hamburger){hamburger.addEventListener('click',function(e){e.stopPropagation();hamburger.classList.toggle('open');mainNav.classList.toggle('open');});}
+    document.querySelectorAll('.has-dropdown').forEach(function(item){item.addEventListener('click',function(e){if(window.innerWidth<=900){var drop=item.querySelector('.mega-dropdown')||item.querySelector('.dropdown'),arrow=item.querySelector('.arrow');if(!drop)return;var isOpen=drop.classList.contains('mobile-open');document.querySelectorAll('.mega-dropdown.mobile-open,.dropdown.mobile-open').forEach(function(d){d.classList.remove('mobile-open');});document.querySelectorAll('.arrow').forEach(function(a){a.style.transform='';});if(!isOpen){drop.classList.add('mobile-open');if(arrow)arrow.style.transform='rotate(180deg)';}e.preventDefault();}});});
+    document.addEventListener('click',function(e){if(mainNav&&hamburger&&!mainNav.contains(e.target)&&!hamburger.contains(e.target)){mainNav.classList.remove('open');hamburger.classList.remove('open');document.querySelectorAll('.mega-dropdown.mobile-open,.dropdown.mobile-open').forEach(function(d){d.classList.remove('mobile-open');});}});
+    var lwrap=document.getElementById('lang-wrapper'),lbtn=document.getElementById('lang-btn');
+    if(lbtn){lbtn.addEventListener('click',function(e){e.stopPropagation();lwrap.classList.toggle('open');});document.addEventListener('click',function(e){if(lwrap&&!lwrap.contains(e.target))lwrap.classList.remove('open');});}
+
+    /* PLAYER */
+    var overlay=document.getElementById('playerOverlay'),scrim=document.getElementById('playerScrim');
+    var playBtn=document.getElementById('playerPlayBtn'),scrubber=document.getElementById('playerScrubber');
+    var curEl=document.getElementById('playerCurrent'),durEl=document.getElementById('playerDur');
+    var wfEl=document.getElementById('playerWaveform');
+    var prevBtn=document.getElementById('playerPrev'),nextBtn=document.getElementById('playerNext');
+    var curId=null,playing=false,curSec=0,totSec=0,timer=null;
+    var WF=72,bars=[];
+
+    for(var i=0;i<WF;i++){var b=document.createElement('div');b.className='wf-bar';var h=8+Math.round(Math.abs(Math.sin(i*0.45+Math.random()*0.5))*36+Math.random()*8);b.style.height=h+'px';b.style.minWidth='3px';wfEl.appendChild(b);bars.push(b);}
+
+    wfEl.addEventListener('click',function(e){var r=wfEl.getBoundingClientRect();var p=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));curSec=p*totSec;scrubber.value=p*100;redraw(p);tick();});
+    function redraw(p){var th=Math.floor(p*WF);bars.forEach(function(b,i){b.classList.remove('played','playing');if(i<th)b.classList.add('played');else if(playing&&i===th)b.classList.add('playing');});}
+    function tick(){var p=totSec>0?curSec/totSec:0;scrubber.value=p*100;curEl.textContent=fmt(curSec);redraw(p);}
+    function fmt(s){s=Math.floor(s);return Math.floor(s/60)+':'+(('0'+(s%60)).slice(-2));}
+    function play(){playing=true;playBtn.classList.add('playing');clearInterval(timer);timer=setInterval(function(){if(curSec>=totSec){stop();return;}curSec+=0.25;tick();},250);}
+    function stop(){playing=false;playBtn.classList.remove('playing');clearInterval(timer);if(curSec>=totSec){curSec=0;tick();}redraw(totSec>0?curSec/totSec:0);}
+    function toggle(){if(playing)stop();else play();}
+
+    function openPlayer(id){
+        var d=SOUNDS[id];if(!d)return;
+        if(curId===id&&overlay.classList.contains('open')){toggle();return;}
+        stop();curId=id;curSec=0;totSec=d.sec;
+        document.getElementById('playerImg').src=d.img;document.getElementById('playerImg').alt=d.title;
+        document.getElementById('playerPhotoBg').style.backgroundImage='url('+d.img+')';
+        document.getElementById('playerTag').textContent=d.tag;
+        document.getElementById('playerTitle').textContent=d.title;
+        document.getElementById('playerLocText').textContent=d.loc;
+        document.getElementById('playerDesc').textContent=d.desc;
+        durEl.textContent=d.dur;scrubber.value=0;tick();
+        var tagsEl=document.getElementById('playerTags');tagsEl.innerHTML='';
+        (d.tags||[]).forEach(function(t){var s=document.createElement('span');s.className='player-tag-pill';s.textContent=t;tagsEl.appendChild(s);});
+        overlay.classList.add('open');document.body.style.overflow='hidden';
+        setTimeout(play,350);
+    }
+    function closePlayer(){stop();overlay.classList.remove('open');document.body.style.overflow='';}
+
+    var IDS=Object.keys(SOUNDS).map(Number);
+    function adj(dir){var idx=IDS.indexOf(curId);return IDS[(idx+dir+IDS.length)%IDS.length];}
+
+    document.querySelectorAll('.sound-card').forEach(function(card){card.addEventListener('click',function(){openPlayer(parseInt(card.dataset.sound));});});
+    playBtn.addEventListener('click',toggle);
+    scrubber.addEventListener('input',function(){curSec=(parseFloat(scrubber.value)/100)*totSec;tick();});
+    document.getElementById('playerClose').addEventListener('click',closePlayer);
+    document.getElementById('playerHandle').addEventListener('click',closePlayer);
+    scrim.addEventListener('click',closePlayer);
+    prevBtn.addEventListener('click',function(){stop();openPlayer(adj(-1));});
+    nextBtn.addEventListener('click',function(){stop();openPlayer(adj(1));});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')closePlayer();if(e.key===' '&&overlay.classList.contains('open')){e.preventDefault();toggle();}});
+/* HERO WAVEFORM */
+(function(){
+    var el = document.getElementById('heroWaveformLarge');
+    if (!el) return;
+    var heights = [8,16,28,10,38,20,48,26,12,42,30,8,34,22,46,14,38,18,44,24,10,36,20,50,16,32,8,42,26,14,40,22,36,12,48,28,18,44,10,34,24,40,16,30,20,46,14,38,26,42,8,34,18,48,12,36,22,44,16,30,26,40,14,46,20,34,10,42,24,36,8,44,18,38,28,12,46,22,36,16];
+    heights.forEach(function(h, i) {
+        var b = document.createElement('div');
+        b.className = 'hero-wf-bar';
+        b.style.height = h + 'px';
+        if (i >= 22 && i <= 54) {
+            b.classList.add('lit');
+            b.style.animationDelay = ((i - 22) * 0.038) + 's';
+        }
+        el.appendChild(b);
+    });
+})();
+})();
+</script>
+</body>
+</html>
