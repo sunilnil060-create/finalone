@@ -1686,3 +1686,164 @@ mark.search-highlight {
         letter-spacing: 1px;
     }
 }
+@media (max-width: 768px) {
+
+    /* Cards: remove aspect-ratio and overflow so info box shows below */
+    .media-gallery .gallery-card,
+    .media-gallery .gallery-row .gallery-card {
+        height: auto !important;
+        min-height: unset !important;
+        aspect-ratio: unset !important;
+        overflow: visible !important;
+        display: flex !important;
+        flex-direction: column !important;
+        background: #fff !important;
+    }
+
+    /* Films card: keep overflow hidden so video doesn't bleed out */
+    #card-films {
+        overflow: hidden !important;
+        background: #000 !important;
+    }
+
+    /* Films VIDEO — directly beats the absolute !important rule above */
+   /* Films: hide video, show image on mobile */
+#card-films video {
+    display: none !important;
+}
+.films-mobile-img {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    height: 240px !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    flex-shrink: 0 !important;
+}
+
+    /* All image bg — relative so it sits at the top */
+    .media-gallery .gallery-card img.gallery-bg-img {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        width: 100% !important;
+        height: 240px !important;
+        min-width: unset !important;
+        min-height: unset !important;
+        object-fit: cover !important;
+        display: block !important;
+        flex-shrink: 0 !important;
+    }
+
+    /* Info box — static so it appears below the image */
+    #card-films .gallery-info-box,
+    #card-essay .gallery-info-box,
+    #card-vignette .gallery-info-box,
+    #card-audio .gallery-info-box {
+        position: static !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        width: 100% !important;
+        background: #fff !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        box-shadow: none !important;
+        border-top: 1px solid #ececec !important;
+        padding: 20px 18px 24px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+
+    #card-films .gallery-info-box h3,
+    #card-essay .gallery-info-box h3,
+    #card-vignette .gallery-info-box h3,
+    #card-audio .gallery-info-box h3 {
+        font-size: 1.15rem !important;
+        color: #000 !important;
+        margin-bottom: 8px !important;
+        white-space: normal !important;
+    }
+
+    #card-films .gallery-info-box p,
+    #card-essay .gallery-info-box p,
+    #card-vignette .gallery-info-box p,
+    #card-audio .gallery-info-box p {
+        display: block !important;
+        font-size: 0.82rem !important;
+        color: #444 !important;
+        line-height: 1.7 !important;
+        margin-bottom: 14px !important;
+    }
+
+    /* Gallery row: stack vertically */
+    .media-gallery .gallery-row {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+
+    /* Footer partners centred */
+    .footer-partners {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    .footer-partners-label { text-align: center !important; }
+    .footer-partners-logos { justify-content: center !important; }
+
+    /* Video section play button centred */
+    .video-wrapper { width: 100% !important; }
+    .play-overlay-btn {
+        bottom: 14px !important;
+        left: 50% !important;
+        right: auto !important;
+        transform: translateX(-50%) !important;
+        white-space: nowrap !important;
+    }
+    .media-gallery { padding: 0 5% !important; gap: 12px !important; }
+    .media-gallery-title { font-size: 1.8rem !important; }
+
+    /* Audio icon stays centred over its image */
+    #card-audio .audio-icon {
+        top: 120px !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        z-index: 4 !important;
+    }
+}
+
+/* About section: label on top, text below */
+@media (max-width: 640px) {
+    .aesthetic-portal .ap-card {
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 20px 12px !important;
+        gap: 8px !important;
+    }
+    .aesthetic-portal .ap-card-left {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 10px !important;
+        padding: 0 !important;
+    }
+    .aesthetic-portal .ap-label-bar { display: none !important; }
+    .aesthetic-portal .ap-label {
+        font-size: 0.58rem !important;
+        letter-spacing: 1.5px !important;
+        color: #999 !important;
+    }
+    .aesthetic-portal .ap-card-right { padding: 0 !important; }
+    .aesthetic-portal .ap-card h3 { font-size: 0.9rem !important; margin-bottom: 5px !important; }
+    .aesthetic-portal .ap-card p  { font-size: 0.82rem !important; line-height: 1.65 !important; }
+    .aesthetic-portal .ap-heading { font-size: 1.8rem !important; }
+    .aesthetic-portal .ap-values-grid { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 360px) {
+    .aesthetic-portal .ap-values-grid { grid-template-columns: 1fr !important; }
+}
