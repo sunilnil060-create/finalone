@@ -1847,3 +1847,6 @@ mark.search-highlight {
 @media (max-width: 360px) {
     .aesthetic-portal .ap-values-grid { grid-template-columns: 1fr !important; }
 }
+.films-mobile-img {
+    display: none;
+}
