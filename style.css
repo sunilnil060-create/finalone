@@ -1850,3 +1850,21 @@ mark.search-highlight {
 .films-mobile-img {
     display: none;
 }
+.themes-scroll-track {
+    align-items: stretch;
+}
+
+.theme-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.theme-item-desc {
+    margin-bottom: 16px;
+}
+
+.theme-explore-btn {
+    margin-top: auto;
+    margin-bottom: 120px;  /* ← add this, adjust value until it looks right */
+    align-self: center;
+}
