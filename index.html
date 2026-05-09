@@ -6,7 +6,7 @@
     <title>Highland Heritages of Bhutan</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="mobile-fixes.css">
+    <link rel="stylesheet" href="mobile-fixes.css">
     <style>
 
         /* ── Section spacing ── */
@@ -371,9 +371,10 @@
 <div class="media-gallery" id="media-gallery">
 
     <div class="gallery-card" id="card-films" style="overflow:hidden;">
-        <video class="gallery-bg-img" autoplay muted loop playsinline preload="auto" style="pointer-events:none;">
+        <video class="gallery-bg-img" autoplay muted loop playsinline preload="auto" poster="images/slider6.jpg" style="pointer-events:none;">
             <source src="images/0424(1).mp4" type="video/mp4">
         </video>
+        <img class="films-mobile-img" src="image/wave.png" alt="Films">
         <div class="gallery-info-box info-right">
             <h3>Films</h3>
             <p>Immersive documentary films capturing the living traditions, landscapes, and voices of Bhutan's highland communities.</p>
@@ -1179,7 +1180,7 @@
 @media (max-width: 768px) {
     .footer-partners {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         gap: 16px;
         padding: 18px 6%;
     }
@@ -1199,6 +1200,7 @@
     }
 }
 </style>
-<script src="script.js"></script>
+
+
 </body>
 </html>
